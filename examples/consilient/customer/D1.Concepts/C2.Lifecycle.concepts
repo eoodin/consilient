@@ -1,0 +1,16 @@
+Lifecycle in Consilient
+=======================
+
+There are <n> steps when Consilient process user sources.
+- Scanning source folder
+- Generating Consilient model
+- Generating documentation
+- Generating ATDD feature definitions
+- Run ATDD tools for ATDD tests
+- Mark result in both features, documentation (optional).
+- Produce report of tests
+
+Let me explain them by example, let us assume that we have a source file with content:
+
+...
+

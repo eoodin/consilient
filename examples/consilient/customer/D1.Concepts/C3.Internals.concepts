@@ -1,0 +1,55 @@
+Models
+============
+
+Consilient uses 3 types of model to represent its processing data internally,
+- * Source Model *
+- * Documentation Model *
+- * Test Model *
+
+Source model
+------------
+
+Source model is the original model generated from user source, while documentation model
+and test model are generated from source model.
+
+Source model represents the user source, it is written in a format called Consilient sources,
+which is an extension of Markdown files.
+
+There are different extensions for those files:
+- .concepts
+- .guides
+
+Concepts are something regarding 'model' inside your software, thus, the documentation then
+will be translated to tests that inspect the internal model of your software.
+
+Guides are a set of user guidelines, or instructions, by which user could follow to achieve
+their business goals. This kind of sources then are translated to acceptance test used in
+Acceptance Tests Driven Development(ATDD).
+
+Documentation model
+-------------------
+
+Documentation model is used for generating customer documentation, it can be considered as
+an html DOM tree, but with limited features. actually, like source model, it is originated
+from Markdown.
+
+Documentation model is the internal model of Consilient, which represent the final customer
+documentation, it is designed for generating different formats of documents, e.g. HTML,
+PDF, or export to XML for third party documentation generator.
+
+Test model
+----------
+
+Test model is used for generate model tests and ATDD source documents, because ATDD is important part Consilient
+try to make use of to empower the development.
+
+There are two types of test model, an internal test model generated from concepts, and an
+external model(behavior model) generated from guides.
+
+
+Scanners
+========
+
+Consilient usually scan a user folder for Consilient sources, Consilient scanner scan those
+folder to get input of user, then generate internal models.
+

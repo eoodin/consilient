@@ -1,0 +1,33 @@
+Introduction
+============
+
+In this chapter, you will learn to create your first Consilient project.
+
+Create source structure
+=======================
+
+Manual create folder structure like:
+: <root>
+:     + customer
+:     |   + Hello Consilient
+:     + drivers
+:     + tests
+
+This is standard folders, you will put your sources, drivers, or tests in these folder
+in order to make it work.
+
+
+Run Consilient in your source root
+==================================
+Open you terminal or command line prompt.
+CD to your source directory.
+Execute command
+> consilient
+
+You should see result like this colorful text:
+
+<tbd>
+
+This information show that you have structure ready, but no source, you need to create
+ some.
+

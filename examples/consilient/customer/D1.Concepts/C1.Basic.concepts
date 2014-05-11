@@ -1,0 +1,21 @@
+Introduction
+============
+
+Consilient is a testing framework, which help you create product from customer documentation.
+
+
+Prefixes and Extensions
+==========
+
+Prefixes and extensions are both used by Consilient for generating customer documentation and tests.
+
+Prefixes
+--------
+Prefix consists of type letter and index number, e.g P1, G32, usually followed by a dot '.'.
+Prefixes are used by identify type and order of documents.
+
+Extensions
+----------
+Extensions are used for identifying type of document.
+C for concept.
+G for guidelines

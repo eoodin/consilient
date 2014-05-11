@@ -1,0 +1,20 @@
+Start Consilient
+================
+
+*Prerequisite*
+Consilient downloaded and installed properly.
+
+Start a your terminal, and type:
+ java -jar Consilient.jar
+
+
+End Consilient
+==============
+
+*Prerequisite*
+Consilient was started
+
+Stop Consilient could be done by:
+ press key Ctrl + C in your terminal which Consilient are running.
+
+
