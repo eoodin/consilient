@@ -67,4 +67,15 @@ public class StrTest {
     public void crWithLnFollowedShouldBeDetectedAsWindows() {
         assertEquals(Str.LN_WIN, Str.detectLineTerminator("Windows format\r\n"));
     }
+
+    @Test
+    public void sequenceOfSameCharsFound_CountSequenceShouldReturnNumberOfIt() {
+        assertEquals(3, Str.countSequence("###", "#"));
+        assertEquals(3, Str.countSequence("###another word", "#"));
+    }
+
+    @Test
+    public void whenTextStartWithCharacterNotMatchPattern_0ShouldReturn() {
+        assertEquals(0, Str.countSequence("a###", "#"));
+    }
 }

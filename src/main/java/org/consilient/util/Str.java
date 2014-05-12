@@ -53,4 +53,16 @@ public class Str {
         String ln = detectLineTerminator(text);
         return split(text, ln);
     }
+
+    public static int countSequence(String text, String pattern) {
+        if (!text.startsWith(pattern))
+            return 0;
+
+        int hit = 0;
+        int pl = pattern.length();
+        while (-1 != text.indexOf(pattern, hit * pl))
+            hit ++;
+
+        return hit;
+    }
 }

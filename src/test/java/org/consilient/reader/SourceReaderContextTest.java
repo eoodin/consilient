@@ -1,54 +1,67 @@
 package org.consilient.reader;
 
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class SourceReaderContextTest {
 
-    private SourceReaderContext readerContext;
+    private SourceReaderContext context;
 
     @Before
     public void setup() {
-        readerContext = new SourceReaderContext();
+        context = new SourceReaderContext();
     }
 
     @Test
     public void initializedContextShouldHasRootElementAsCurrentElement() {
-        RootElement rootElement = readerContext.getRoot();
+        RootElement rootElement = context.getRoot();
         assertNotNull(rootElement);
-        assertEquals(readerContext.getCurrentElement(), rootElement);
+        assertEquals(context.getCurrentElement(), rootElement);
     }
 
     @Test
     public void contextCountLinesAfterTextSet() {
-        readerContext.setText("Hello\n\n\nworld\n");
-        assertEquals(5, readerContext.countTextLines());
+        context.setText("Hello\n\n\nworld\n");
+        assertEquals(5, context.countTextLines());
     }
 
-    @Ignore
+    @Test
+    public void linesCanBeReadAgainAfterMoveCursorBack() {
+        context.setText("Line 1\nLine 2\nLine 3");
+        context.readLine();
+        String line2 = context.readLine();
+        assertEquals("Line 2", line2);
+
+        context.cursorBack(2);
+        assertEquals("Line 1", context.readLine());
+    }
+
+    @Test
+    public void whenCursorMoveBackTooMuch_CursorStayAtBegining() {
+        context.setText("Line 1\nLine 2\nLine 3");
+        context.readLine();
+        context.readLine();
+        context.cursorBack(10);
+        assertEquals("Line 1", context.readLine());
+    }
+    
     @Test
     public void contextRememberLinesHaveBeenRead() {
-        readerContext.setText("Hello\nworld");
-        assertEquals(0, readerContext.countReadLines());
+        context.setText("Hello\nworld\n");
+        assertEquals(0, context.countReadLines());
 
-        String line = readerContext.readLine();
-        assertEquals("Hello", line);
-        assertEquals(1, readerContext.countReadLines());
+        assertEquals("Hello", context.readLine());
+        assertEquals(1, context.countReadLines());
 
-        line = readerContext.readLine();
-        assertEquals("world", line);
-        assertEquals(2, readerContext.countReadLines());
+        assertEquals("world", context.readLine());
+        assertEquals(2, context.countReadLines());
 
-        line = readerContext.readLine();
-        assertEquals(line, "");
-        assertEquals(3, readerContext.countReadLines());
+        assertEquals("", context.readLine());
+        assertEquals(3, context.countReadLines());
 
-        line = readerContext.readLine();
-        assertNull(line);
-        assertEquals(3, readerContext.countReadLines());
+        assertNull(context.readLine());
+        assertEquals(3, context.countReadLines());
     }
 }

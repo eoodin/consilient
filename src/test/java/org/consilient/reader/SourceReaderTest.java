@@ -17,46 +17,12 @@ public class SourceReaderTest {
         sourceReader = new SourceReader();
     }
 
+//    @Ignore
+//    @Test
+//    public void whenNormalTextInLineRead_TextElementShouldBeCreated() {
+//        Element root = sourceReader.parse("Normal text in line");
+//        assertThat(root, new IsInstanceOf(TextElement.class));
+//    }
 
-    @Test
-    public void secondLineIsSeriesOfEqualMarks_H1ShouldBeGiven() {
-        String text =  "Hello\n===\n";
-        Element root = sourceReader.parse(text);
-        assertThat(root, new IsInstanceOf(Heading.class));
-
-        Heading heading = (Heading) root;
-        assertEquals(heading.getLevel(), 1);
-    }
-
-    @Test
-    public void secondLineIsSeriesOfDashMarks_H2ShouldBeGiven() {
-        String text =  "Dash\n----\n";
-        Element root = sourceReader.parse(text);
-        assertThat(root, new IsInstanceOf(Heading.class));
-
-        Heading heading = (Heading) root;
-        assertEquals(heading.getLevel(), 2);
-    }
-
-    @Test
-    public void whenLineStartWithNHashAndSpaceAndText_HNShouldBeGiven() {
-        Element root = sourceReader.parse("# Intent to be H1");
-        assertThat(root, new IsInstanceOf(Heading.class));
-
-        Heading heading = (Heading) root;
-        assertEquals(heading.getLevel(), 1);
-
-        root = sourceReader.parse("## Intent to be H2");
-        assertThat(root, new IsInstanceOf(Heading.class));
-
-        heading = (Heading) root;
-        assertEquals(heading.getLevel(), 2);
-
-        root = sourceReader.parse("### Intent to be H3");
-        assertThat(root, new IsInstanceOf(Heading.class));
-
-        heading = (Heading) root;
-        assertEquals(heading.getLevel(), 3);
-    }
 
 }

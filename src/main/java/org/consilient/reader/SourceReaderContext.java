@@ -1,10 +1,6 @@
 package org.consilient.reader;
 
-import com.sun.deploy.util.StringUtils;
 import org.consilient.util.Str;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class SourceReaderContext {
     private RootElement rootElement;
@@ -51,5 +47,12 @@ public class SourceReaderContext {
 
     public int countTextLines() {
         return lines.length;
+    }
+
+    public void cursorBack(int steps) {
+        currentLine -= steps;
+
+        if (currentLine < 0)
+            currentLine = 0;
     }
 }
