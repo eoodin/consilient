@@ -1,7 +1,9 @@
-package org.consilient.reader;
+package org.consilient.reader.parser;
 
+import org.consilient.reader.Heading;
+import org.consilient.reader.SourceReaderContext;
+import org.consilient.reader.parser.HeadingParser;
 import org.hamcrest.core.IsInstanceOf;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,7 +18,6 @@ public class HeadingParserTest {
     public void initialize() {
         parser = new HeadingParser();
         context = new SourceReaderContext();
-        
     }
         
     @Test

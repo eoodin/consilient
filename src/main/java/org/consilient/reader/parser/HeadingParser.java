@@ -1,5 +1,7 @@
-package org.consilient.reader;
+package org.consilient.reader.parser;
 
+import org.consilient.reader.Heading;
+import org.consilient.reader.SourceReaderContext;
 import org.consilient.util.Str;
 
 public class HeadingParser {
