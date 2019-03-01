@@ -1,25 +1,28 @@
-consilient
-==========
+# Initiative
 
-Consilient is a development harness
+General GUI test automation is diffcult and no good tool at hand.
 
-Thoughts
---------
-This project is aiming to create a development tool to automate documentation creation to code to test implementation.
-
-It is similar to ATDD tools, like Cucumber or FitNess. The reason why I create this is that I need not only development/testing common methodology support tool, but a tool that support my thoughts of development cycle.
-
-The initial thoughts is:
-0. Dev gets product design ready.
-1. Dev writes documentation contains: principles, terms, usages, and examples.
-2. Consilient help to create stubs where dev fill them to get ATDD input, as well as other input ready.
-3. Dev then write glue code and testing code for prodcut.
-4. Dev write production code untill all tests pass.
+When time comes to 2019, there are a lot of fundamental facilities allow us
+to build a tool for automated GUI testing.
 
 
-Worklogs
---------
-Consilient should not be a full stack solution, but involve other framework or tools to get things done, therefore, I need to evaluate and choose proper tools for different steps. 
+# Supposed Components
 
-Those trials and worklogs are stored in <code>worklogs/ToolsChoosing.MD</code>
+In order to integrate the tools into most of the automation environments, 
+it should be made of parts and corss-platform.
+
+## Engine
+
+The core for running tests.
+
+## Playground
+
+The component allow GUI stuff to be happening with 'visual'.
+
+In Linux environment we can make use of headless X 11 server 'xvfp' for 
+this purpose.
+
+When Windows or MacOS is the target platform, additional server running 
+those OSes and corresponding 'remote desktop' app should be available in
+xvfp environment.
 
